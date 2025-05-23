@@ -16,7 +16,7 @@ st.write("スムージーの名前は次のようになります：", name_on_or
 # session = get_active_session()
 cnx = st.connection("snowflake")
 session = cnx.session()
-my_dataframe = session.table("smoothies.public.fruit_options").select(col('SEARCH_ON'))
+my_dataframe = session.table("smoothies.public.fruit_options").select(col('FRUIT_NAME'), col('SEARCH_ON'))
 
 # LOC関数を使用できるように、SnowparkデータフレームをPandasデータフレームに変換します。
 pd_df = my_dataframe.to_pandas()
