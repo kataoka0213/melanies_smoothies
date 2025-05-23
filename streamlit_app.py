@@ -48,3 +48,8 @@ if ingredients_list:
         session.sql(my_insert_stmt).collect() #collect()がないと実行されない
 
         st.success('スムージーを注文しました、{}！'.format(name_on_order), icon="✅")
+
+# スムージールートの栄養情報を表示する新しいセクション
+import requests
+smoothiefroot_response = requests.get("https://my.smoothiefroot.com/api/fruit/watermelon")
+st.text(smoothiefroot_response)
